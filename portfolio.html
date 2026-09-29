@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aryan Singh — Portfolio</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ---------- Color palette from your uploaded image ---------- */
+  :root {
+    --pink-light: #FFDBDF;
+    --pink: #F791A9;
+    --yellow: #FFE797;
+    --olive: #DDDD7B;
+    --cyan-light: #E0F2F4;
+    --blue: #BAD6DA;
+    --ink: #333333; /* dark text so it stays readable on these light colors */
+  }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--cyan-light);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* ---------- Navigation Bar (Flexbox) ---------- */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: var(--pink);
+    color: var(--ink);
+    position: sticky;
+    top: 0;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+  }
+
+  nav a {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease; /* transition #1 */
+  }
+
+  nav a:hover {
+    color: #ffffff;
+  }
+
+  /* ---------- Hero Section (gradient background + animation) ---------- */
+  #hero {
+    background: linear-gradient(135deg, var(--pink), var(--yellow));
+    color: var(--ink);
+    text-align: center;
+    padding: 80px 32px;
+    animation: fadeSlideUp 1s ease-out; /* animation #1 */
+  }
+
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  #hero h1 {
+    font-size: 35px;
+    margin-bottom: 8px;
+  }
+
+  #hero p {
+    color: #4d4d4d;
+  }
+
+  /* ---------- General Section Styling (Box model) ---------- */
+  section {
+    padding: 40px 32px;
+    max-width: 800px;
+    margin: 32px auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  }
+
+  h2 {
+    margin-bottom: 16px;
+    color: var(--ink);
+    border-bottom: 3px solid var(--pink);
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+
+  /* ---------- Buttons / Working Links ---------- */
+  .btn {
+    display: inline-block;
+    padding: 10px 19px;
+    margin-top: 16px;
+    background-color: var(--pink);
+    color: var(--ink);
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .btn:hover {
+    background-color: var(--olive);
+    transform: translateY(-2px);
+  }
+
+  /* ---------- Skills Section (CSS Grid) ---------- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .skill-box {
+    padding: 16px;
+    text-align: center;
+    border-radius: 8px;
+    color: var(--ink);
+    font-weight: bold;
+    transition: transform 0.2s ease;
+  }
+
+  .skill-box:hover {
+    transform: translateY(-4px);
+  }
+
+  .skill-box:nth-child(1) { background-color: var(--pink-light); }
+  .skill-box:nth-child(2) { background-color: var(--yellow); }
+  .skill-box:nth-child(3) { background-color: var(--blue); }
+
+  /* ---------- Projects Section (Flexbox) ---------- */
+  .project-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .project-card {
+    flex: 1 1 220px;
+    padding: 19px;
+    border: 1px solid #eeeeee;
+    border-top: 4px solid var(--pink);
+    border-radius: 8px;
+    background-color: #fdfdfd;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .project-card:nth-child(2) { border-top-color: var(--olive); }
+  .project-card:nth-child(3) { border-top-color: var(--blue); }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .project-card h3 {
+    margin-bottom: 6px;
+  }
+
+  .project-card ul {
+    list-style: disc;
+    margin: 10px 0 0 19px;
+  }
+
+  /* ---------- Education / Experience Section ---------- */
+  .edu-item {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--cyan-light);
+  }
+
+  .edu-item:last-child {
+    border-bottom: none;
+  }
+
+  /* ---------- Contact Section ---------- */
+  ul.plain-list {
+    list-style: disc;
+    margin-left: 24px;
+  }
+
+  ul.plain-list a {
+    color: #c0567a;
+    font-weight: bold;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    text-align: center;
+    padding: 24px;
+    background-color: var(--pink);
+    color: var(--ink);
+    font-size: 14px;
+  }
+
+  /* ---------- Responsive Layout ---------- */
+  @media (max-width: 600px) {
+    header {
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    nav ul {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 13px;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+
+    section {
+      padding: 24px;
+      margin: 16px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <strong>Aryan Singh</strong>
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="hero">
+  <h1>Aryan Singh</h1>
+  <p>Computer Science Student | Learning Java, HTML &amp; CSS</p>
+  <a href="#contact" class="btn">Get in Touch</a>
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>Hi, I'm Aryan Singh, a Computer Science student at BITS Pilani. I'm currently learning Java, HTML, and CSS, and building small projects along the way to practice what I learn.</p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-box">Java</div>
+    <div class="skill-box">HTML</div>
+    <div class="skill-box">CSS</div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="project-list">
+    <div class="project-card">
+      <h3>Project 1</h3>
+      <p>Replace this with your first project's name and a short description.</p>
+      <ul><li>Java</li></ul>
+      <a href="#" class="btn">View Project</a>
+    </div>
+    <div class="project-card">
+      <h3>Project 2</h3>
+      <p>Replace this with your second project's name and a short description.</p>
+      <ul><li>HTML</li><li>CSS</li></ul>
+      <a href="#" class="btn">View Project</a>
+    </div>
+    <div class="project-card">
+      <h3>Project 3</h3>
+      <p>Replace this with your third project's name and a short description.</p>
+      <ul><li>HTML</li><li>CSS</li></ul>
+      <a href="#" class="btn">View Project</a>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <div class="edu-item">
+    <span>BITS Pilani — B.Sc. (Hons.) Computer Science</span>
+    <span>In progress</span>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <ul class="plain-list">
+    <li>Email: <a href="mailto:aryansinghcampus@gmail.com">aryansinghcampus@gmail.com</a></li>
+    <li>Phone: <a href="tel:+917355440712">+91 73554 40712</a></li>
+    <li>GitHub: <a href="https://github.com/aryansinghcampus-boop" target="_blank" rel="noopener">github.com/aryansinghcampus-boop</a></li>
+  </ul>
+</section>
+
+<footer>
+  &copy; 2026 Aryan Singh. Built with HTML &amp; CSS only.
+</footer>
+
+</body>
+</html>
